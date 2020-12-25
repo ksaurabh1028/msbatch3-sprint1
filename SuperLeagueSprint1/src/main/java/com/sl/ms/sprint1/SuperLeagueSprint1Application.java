@@ -20,11 +20,8 @@ import java.util.stream.Stream;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
-
 @SpringBootApplication
 public class SuperLeagueSprint1Application {
-
 
     static Consumer<Inventory>  c1= p -> System.out.println(p);
 
@@ -85,7 +82,7 @@ public class SuperLeagueSprint1Application {
   */
   private static void stockSummaryPerDay(List<Inventory> inventoryList) {
 
-    System.out.println("Stock Summary per day:");
+    System.out.println("\nStock Summary per day:");
     inventoryList.forEach(c1);
   }
 
@@ -94,7 +91,7 @@ public class SuperLeagueSprint1Application {
   * @param inventoryList
   */
   private static void totalItemsSoldToday(List<Inventory> inventoryList) {
-    System.out.println("Stock Summary sold today:");
+    System.out.println("\nStock Summary sold today:");
     inventoryList.forEach(c2);
   }
 
@@ -104,7 +101,7 @@ public class SuperLeagueSprint1Application {
  * @param itemId
  */
   private static void summarySingleItem(List<Inventory> inventoryList, String itemId) {
-    System.out.println("Summary of Single item with id:" + itemId);
+    System.out.println("\nSummary of Single item with id:" + itemId);
 
     inventoryList.stream()
       .filter(p -> p.getId().equals(itemId))
@@ -117,7 +114,7 @@ public class SuperLeagueSprint1Application {
  */
   private static void top5itemsLastMonth(List<Inventory> inventoryList) {
 
-    System.out.println("Top 5 items last month");
+    System.out.println("\nTop 5 items last month");
 
     inventoryList.stream()
       .filter(p2)
@@ -134,7 +131,7 @@ public class SuperLeagueSprint1Application {
 * @param inventoryList
 */
   private static void totalItemsPerMonth(List<Inventory> inventoryList) {
-    System.out.println("Total items per month\n");
+    System.out.println("\nTotal items per month\n");
     inventoryList.stream()
     .collect(Collectors.groupingBy(Inventory::getDateUploadMonth, TreeMap::new,Collectors.summingInt(Inventory::getQuantity)))
     .entrySet()
